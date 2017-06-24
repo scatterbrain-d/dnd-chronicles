@@ -1,0 +1,19 @@
+h1 {
+    color: red;
+}
+
+.navbar-brand {
+    padding: 0 15px;
+}
+
+.navbar-fixed-left {
+    width: 15%;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
