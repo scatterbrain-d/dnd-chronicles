@@ -1,0 +1,38 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <div class="newform">
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label>Session Title</label>
+                <input class="form-control" type="text" name="title" placeholder="title">
+            </div>
+            <div class="form-group">
+                <label>Image</label>
+                <input class="form-control" type="text" name="image" placeholder="image">
+            </div>
+            <label>Session Date</label>
+            <div class="form-group">
+                <input class="form-control" type="text" name="date" placeholder="mm/dd/yy">
+            </div>
+            <div class="form-group">
+                <label>Party Members</label><br>
+                <input class="form-control characterform" type="text" name="party[0]">
+                <input class="form-control characterform" type="text" name="party[1]">
+                <input class="form-control characterform" type="text" name="party[2]">
+                <input class="form-control characterform" type="text" name="party[3]">
+                <input class="form-control characterform" type="text" name="party[4]">
+                <input class="form-control characterform" type="text" name="party[5]">
+                <input class="form-control characterform" type="text" name="party[6]">
+                <input class="form-control characterform" type="text" name="party[7]">
+            </div>
+                 <label>Session Content</label>
+            <div class="form-group">
+                <textarea class="form-control" name="content"></textarea>
+            </div>
+            <input type="submit">
+        </form>
+    </div>
+</div>
+
+<% include ./partials/footer %>

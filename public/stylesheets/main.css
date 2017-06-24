@@ -17,3 +17,14 @@ h1 {
 .blue {
     background-color: blue;
 }
+
+.newform {
+    width: 40%;
+    min-width: 500px;
+    margin: auto;
+}
+
+.characterform {
+    width: 20%;
+    display: inline-block;
+}
