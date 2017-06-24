@@ -22,7 +22,13 @@ var sessionSchema = new mongoose.Schema({
 var Session = mongoose.model("Session", sessionSchema);
 
 app.get("/", function(req, res){
-   res.render("index"); 
+    Session.find({}, function(err, sessions){
+        if (err){
+            console.log(err);
+        } else {
+            res.render("index", {sessions: sessions});    
+        }
+    })
 });
 
 app.get("/new", function(req, res){

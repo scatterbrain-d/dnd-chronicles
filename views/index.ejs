@@ -4,29 +4,24 @@
     <div class="row">
         <div class="col-xs-4 col-sm-3 col-md-2 red">
             <ol>
-                <li><a href="#anchor">The Stroll Tase</a></li>
-                <li><a href="#anchor">Fart Hand</a></li>
-                <li><a href="#anchor">Crate and Barrel</a></li>
-                <li><a href="#anchor">Batten Down the Hatches</a></li>
+                <% sessions.forEach(function(entry){ %>
+                    <li><a href="#<%= entry.id %>"><%= entry.title %></a></li>
+                <% }) %>
             </ol>
         </div>
         <div class="col-xs-8 blue col-sm-9 col-md-10 blue">
-            <div name="anchor">
-                <h2>Episode 1: The Stroll Tase</h2>
-                <p>Tiamat was defeated, Selamut ascended to godhood, and time began anew. The year is now 1550 a.a.s. The party (level 3) meets when they assist a halfling who has lost a very special scroll case to a thief. Sarrahh identifies the thief as Sir Crimfall of the McTiurn Clan. The very powerful Sir Crimfall overpowers the party, cutting down both Magic Ian and Sarrahh, but the remaining members manage to grab the scroll case before Sir Crimfall flees the city guard.<br>
- 
-                The halfling introduces himself as Milo Tealeaf, an adventurer employed by Teetok Nu. He has a speech impediment that causes him to sometimes pronounce “scroll case” as “stroll tase.” Within the scroll case is a map of what Jonah recognizes as the very dangerous Isle of Blades. Milo asks the party to accompany him to the island to find a powerful font that can either create magic items or restore magic to items that have lost their enchantment. Each member of the party swears a Soul Oath to help Milo find this font.<br>
- 
-                Jonah offers use of his ship, the Salty Widow, and the party sets off for the island. Upon arrival, the party has a brief conversation with Mermaids, who agree to navigate them through the treacherous shallows of the isle in return for a trident that is somewhere on the island.  They are then interrupted by a naga, who chases off the mermaids and attacks the party with two delicious giant lobster. The naga fights fiercely, and Magic Ian almost died  in battle, but the party wins the day and pulls Ian back from the yawning maw of oblivion. The party feasts on lobster that night. One of the lobsters was spared maybe?<br>
- 
-                Other things to note:<br>
-                <li>Jojo the Mad stole something from a commoner during the commotion of the first battle.</li>
-                <li>Jonah refused the Soul Oath, cursing the gods, but instead swore on his honor as a sailor. He mentions that he lost his last crew to Melora, goddess of storms.</li>
-                <li>Serrah seems to know something about Milo’s employer.</li>
-                <li>Milo’s employer is Teetok Nu who may also have an interest in restoring magic.</li>
-                </p>
-                
-            </div>
+            <% sessions.forEach(function(entry){ %>
+                <div name="<%= entry.id %>">
+                    <h2><%= entry.title %></h2>
+                    <p>Party Members:
+                        <% var party = entry.party; %>
+                        <% party.forEach(function(character){ %>    
+                            <a href="/characters/<%=character%>" ><%= character + " " %></a>
+                        <% }) %>
+                    </p>
+                    <p><%- entry.content %></p>
+                </div>
+            <% }) %>
         </div>
     </div>
 </div>
