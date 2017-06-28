@@ -3,33 +3,46 @@
 <div class="container">
     <div class="newform">
         <form action="/" method="POST">
+            
             <div class="form-group">
                 <label>Session Title</label>
-                <input class="form-control" type="text" name="title" placeholder="title">
+                <input class="form-control" type="text" name="session[title]" placeholder="title">
             </div>
+            
             <div class="form-group">
-                <label>Image</label>
-                <input class="form-control" type="text" name="image" placeholder="image">
+                <label>Session Date</label>
+                <input class="form-control" type="text" name="session[date]" placeholder="mm/dd/yy">
             </div>
-            <label>Session Date</label>
+            
             <div class="form-group">
-                <input class="form-control" type="text" name="date" placeholder="mm/dd/yy">
+                <label>Dungeon Master</label>
+                <input class="form-control" type="text" name="session[dm]" placeholder="DM">
             </div>
+            
             <div class="form-group">
-                <label>Party Members</label><br>
-                <input class="form-control characterform" type="text" name="party[0]">
-                <input class="form-control characterform" type="text" name="party[1]">
-                <input class="form-control characterform" type="text" name="party[2]">
-                <input class="form-control characterform" type="text" name="party[3]">
-                <input class="form-control characterform" type="text" name="party[4]">
-                <input class="form-control characterform" type="text" name="party[5]">
-                <input class="form-control characterform" type="text" name="party[6]">
-                <input class="form-control characterform" type="text" name="party[7]">
+                <label>Image URL</label>
+                <input class="form-control" type="text" name="session[image]" placeholder="image">
             </div>
-                 <label>Session Content</label>
+            
             <div class="form-group">
-                <textarea class="form-control" name="content"></textarea>
+                <label>Image Caption</label>
+                <input class="form-control" type="text" name="session[caption]" placeholder="caption">
             </div>
+            
+            <div class="form-group form-check form-check-inline">
+                <label class="form-check-label">Party Members<br>
+                <% characters.forEach(function(character){ %>
+                    <input class="form-check-input inlineCheck" type="checkbox" name="session[characters]" value="<%= character._id %>" id="<%= character._id %>">
+                    <label for="<%= character._id %>"><%= character.name %></label>
+                <% }); %>
+                </label>
+            </div>
+                 
+            <div class="form-group">
+                <label>Session Content</label>
+                <textarea class="form-control" name="session[content]"></textarea>
+            </div>
+            
             <input type="submit">
         </form>
         <a class="pull-right" href="/"><button>Go Back</button></a>
