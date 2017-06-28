@@ -1,0 +1,17 @@
+<% include ./partials/header %>
+
+    <div class="container">
+        <h2><%= session.title %></h2>
+        <p>Party Members:
+            <% var party = session.party; %>
+            <% party.forEach(function(character){ %>    
+                <a href="/characters/<%=character%>" ><%= character + " " %></a>
+            <% }) %>
+        </p>
+        <p><%- session.content %></p>
+        <a href="/<%= session._id %>/edit" type="button">Edit</a>
+    </div>
+
+<!--NOTE - ADD DM AND IMG CAPTION TO SCHEMA -->
+
+<% include ./partials/footer %>

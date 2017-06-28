@@ -1,0 +1,45 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <div class="newform">
+        <form action="/<%= session._id %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <label>Session Title</label>
+                <input class="form-control" type="text" name="session[title]" value="<%= session.title %>">
+            </div>
+            <div class="form-group">
+                <label>Image link</label>
+                <input class="form-control" type="text" name="session[image]" value="<%= session.image %>">
+            </div>
+            <div class="form-group">
+                <label>Image caption</label>
+                <input class="form-control" type="text" name="session[caption]" value="<%= session.caption %>">
+            </div>
+            <label>Session Date</label>
+            <div class="form-group">
+                <input class="form-control" type="text" name="session[date]" value="<%= session.date %>">
+            </div>
+            <div class="form-group">
+                <label>Party Members</label><br>
+                <% var party = session.party; %>
+                <% var newParty = []; %>
+                <input class="form-control characterform" type="text" value="<%= party[0] %>" name="newParty[0]">
+                <input class="form-control characterform" type="text" value="<%= party[1] %>" name="newParty[1]">
+                <input class="form-control characterform" type="text" value="<%= party[2] %>" name="newParty[2]">
+                <input class="form-control characterform" type="text" value="<%= party[3] %>" name="newParty[3]">
+                <input class="form-control characterform" type="text" value="<%= party[4] %>" name="newParty[4]">
+                <input class="form-control characterform" type="text" value="<%= party[5] %>" name="newParty[5]">
+                <input class="form-control characterform" type="text" value="<%= party[6] %>" name="newParty[6]">
+                <input class="form-control characterform" type="text" value="<%= party[7] %>" name="newParty[7]">
+            </div>
+                 <label>Session Content</label>
+            <div class="form-group">
+                <textarea class="form-control" name="session[content]"><%- session.content %></textarea>
+            </div>
+            <input type="submit">
+        </form>
+        <a class="pull-right" href="/<%= session._id %>"><button>Go Back</button></a>
+    </div>
+</div>
+
+<% include ./partials/footer %>
