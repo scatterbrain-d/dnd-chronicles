@@ -1,7 +1,5 @@
 <% include ./partials/header %>
 
-
-
     <div class="container">
         <h2><%= session.title %></h2>
         <p>Party Members:
@@ -11,8 +9,10 @@
             <% }) %>
         </p>
         <p><%- session.content %></p>
-        <a href="/<%= session._id %>/edit" type="button">Edit</a>
+        <a href="/<%= session._id %>/edit"><button class="btn btn-xs btn-warning">Edit</button></a>
+        <form action="/<%= session._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger btn-xs">Delete</button>
+        </form>
     </div>
-<% console.log(session); %>
 
 <% include ./partials/footer %>

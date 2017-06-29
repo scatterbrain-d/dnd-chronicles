@@ -16,7 +16,6 @@ app.use(methodOverride("_method"));
 
 //==========================================
 
-
 var characterSchema = new mongoose.Schema({
     name: String,
     level: Number,
@@ -71,14 +70,14 @@ app.get("/new", function(req, res){
 
 //CREATE
 app.post("/", function(req, res){
-      Session.create(req.body.session, function(err, createdSession){
-          if (err){
-              console.log(err);
-          } else {
-              console.log(createdSession);
-              res.redirect("/");
-          }
-      });
+    Session.create(req.body.session, function(err, createdSession){
+        if (err){
+            console.log(err);
+        } else {
+            console.log(createdSession);
+            res.redirect("/");
+        }
+    });
     console.log(req.body);
 });
 
@@ -124,6 +123,15 @@ app.put("/:id", function(req, res){
     });
 });
 
+//DELETE
+app.delete("/:id", function(req, res){
+    Session.findByIdAndRemove(req.params.id, function(err){
+        if (err) {
+            console.log(err);
+        }
+        res.redirect("/");
+    }); 
+});
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("chronicles running"); 
