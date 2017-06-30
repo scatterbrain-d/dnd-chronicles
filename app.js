@@ -52,7 +52,7 @@ app.get("/", function(req, res){
         if (err){
             console.log(err);
         } else {
-            res.render("index", {sessions: sessions});    
+            res.render("session/index", {sessions: sessions});    
         }
     });
 });
@@ -63,7 +63,7 @@ app.get("/new", function(req, res){
         if (err) {
             console.log(err);
         } else {
-            res.render("new", {characters: characters}); 
+            res.render("session/new", {characters: characters}); 
         }
     });
 });
@@ -87,7 +87,7 @@ app.get("/:id", function(req, res){
         if (err){
             console.log(err);
         } else {
-            res.render("show", {session: foundSession});
+            res.render("session/show", {session: foundSession});
         }
     });
 });
@@ -103,7 +103,7 @@ app.get("/:id/edit", function(req, res){
                    console.log(err);
                    res.redirect("/");
                } else {
-                   res.render("edit", {session: foundSession, characters: characters});
+                   res.render("session/edit", {session: foundSession, characters: characters});
                 }
             });    
         }
@@ -132,6 +132,37 @@ app.delete("/:id", function(req, res){
         res.redirect("/");
     }); 
 });
+
+//Character Routes
+//=============================
+
+//index
+app.get("/characters", function(req, res){
+    Character.find({}, function(err, character) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("character/main", {character: character});  
+        }
+    });
+});
+
+//show
+app.get("/characters/:id", function(req, res){
+    Character.findById(req.params.id, function(err, character){
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("character/show", {character: character});
+        }
+    }); 
+});
+
+//edit
+app.get("/characters/:id/edit", function(req, res){
+    
+});
+
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("chronicles running"); 

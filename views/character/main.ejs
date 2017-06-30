@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+    <div class="container">
+        <h1>Hall of Heroes</h1>
+        <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <% character.forEach(function(char){ %>
+                <a class="thumbnail" href="/characters<%= char.id %>">
+                <div>
+                    <img src="<%= char.image %>">
+                </div>                           
+                <div class="caption">
+                    <h3><%= char.name %></h3>
+                    <p><%= char.gameClass %></p>                    
+                </div>
+                </a>
+            <%  }); %>
+        </div>
+        </div>
+    </div>        
+<% include ../partials/footer %>

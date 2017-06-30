@@ -1,4 +1,4 @@
-<% include ./partials/header %>
+<% include ../partials/header %>
 
 <div class="container">
     <div class="newform">
@@ -35,14 +35,14 @@
                     <% var checked = false; %>
                     <% session.characters.forEach(function(id){ %>
                         <% if(id == character.id){ %>
-                        <% checked = true; console.log("match!");} %>
+                        <% checked = true; } %>
                     <% }); %> 
                     <% if (checked) { %>
-                        <input checked class="form-check-input inlineCheck" type="checkbox" name="session[characters]" value="<%= character._id %>" id="<%= character._id %>">
-                        <label for="<%= character._id %>"><%= character.name %></label>
+                        <input checked class="form-check-input inlineCheck" type="checkbox" name="session[characters]" value="<%= character.id %>" id="<%= character.id %>">
+                        <label for="<%= character.id %>"><%= character.name %></label>
                     <% } else { %>
-                        <input class="form-check-input inlineCheck" type="checkbox" name="session[characters]" value="<%= character._id %>" id="<%= character._id %>">
-                        <label for="<%= character._id %>"><%= character.name %></label>
+                        <input class="form-check-input inlineCheck" type="checkbox" name="session[characters]" value="<%= character.id %>" id="<%= character.id %>">
+                        <label for="<%= character.id %>"><%= character.name %></label>
                     <% } %>
                 <% }); %>
             </div>
@@ -58,4 +58,4 @@
     </div>
 </div>
 
-<% include ./partials/footer %>
+<% include ../partials/footer %>
