@@ -47,7 +47,7 @@ var Session = mongoose.model("Session", sessionSchema);
 //==========================================
 
 //INDEX
-app.get("/", function(req, res){
+app.get("/session", function(req, res){
     Session.find({}, function(err, sessions){
         if (err){
             console.log(err);
@@ -58,7 +58,7 @@ app.get("/", function(req, res){
 });
 
 //NEW
-app.get("/new", function(req, res){
+app.get("/session/new", function(req, res){
     Character.find({}, function(err, characters){
         if (err) {
             console.log(err);
@@ -69,20 +69,20 @@ app.get("/new", function(req, res){
 });
 
 //CREATE
-app.post("/", function(req, res){
+app.post("/session", function(req, res){
     Session.create(req.body.session, function(err, createdSession){
         if (err){
             console.log(err);
         } else {
             console.log(createdSession);
-            res.redirect("/");
+            res.redirect("/session");
         }
     });
     console.log(req.body);
 });
 
 //SHOW
-app.get("/:id", function(req, res){
+app.get("/session/:id", function(req, res){
     Session.findById(req.params.id).populate("characters").exec(function(err, foundSession){
         if (err){
             console.log(err);
@@ -93,7 +93,7 @@ app.get("/:id", function(req, res){
 });
 
 //EDIT
-app.get("/:id/edit", function(req, res){
+app.get("/session/:id/edit", function(req, res){
     Character.find({}, function(err, characters){
         if (err) {
             console.log(err);
@@ -101,7 +101,7 @@ app.get("/:id/edit", function(req, res){
             Session.findById(req.params.id, function(err, foundSession){
                 if (err){
                    console.log(err);
-                   res.redirect("/");
+                   res.redirect("/session");
                } else {
                    res.render("session/edit", {session: foundSession, characters: characters});
                 }
@@ -111,25 +111,25 @@ app.get("/:id/edit", function(req, res){
 });
 
 //UPDATE
-app.put("/:id", function(req, res){
+app.put("/session/:id", function(req, res){
     req.body.session.party = req.body.newParty;
     Session.findByIdAndUpdate(req.params.id, req.body.session, function(err, updatedSession){
         if (err){
             console.log(err);
-            res.redirect("/");
+            res.redirect("/session");
         } else {
-            res.redirect("/" + req.params.id);
+            res.redirect("/session/" + req.params.id);
         }
     });
 });
 
 //DELETE
-app.delete("/:id", function(req, res){
+app.delete("/session/:id", function(req, res){
     Session.findByIdAndRemove(req.params.id, function(err){
         if (err) {
             console.log(err);
         }
-        res.redirect("/");
+        res.redirect("/session");
     }); 
 });
 

@@ -9,8 +9,8 @@
             <% }) %>
         </p>
         <p><%- session.content %></p>
-        <a href="/<%= session._id %>/edit"><button class="btn btn-xs btn-warning">Edit</button></a>
-        <form action="/<%= session._id %>?_method=DELETE" method="POST">
+        <a href="/session/<%= session._id %>/edit"><button class="btn btn-xs btn-warning">Edit</button></a>
+        <form action="/session/<%= session._id %>?_method=DELETE" method="POST">
             <button class="btn btn-danger btn-xs">Delete</button>
         </form>
     </div>
