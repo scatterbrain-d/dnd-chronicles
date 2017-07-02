@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+    
+    <div class="container">
+        <form action="/characters/<%= character.id %>?_method=PUT" method="POST">
+            <div>
+                <input type="text" value="<%= character.name %>" name="character[name]">
+            </div>
+            <div>
+                <input type="text" value="<%= character.gameClass %>" name="character[gameClass]">
+            </div>
+            <div>
+                <input type="text" value="<%= character.skill %>" name="character[skill]">
+            </div>
+            <div>
+                <input type="text" value="<%= character.image %>" name="character[image]">
+            </div>
+            <div>
+                <input type="text" value="<%= character.likes %>" name="character[likes]">
+            </div>
+            <div>
+                <input type="text" value="<%= character.dislikes %>" name="character[dislikes]">
+            </div>
+            <button type="Submit">Submit</button>
+        </form>
+    </div>        
+
+<% include ../partials/footer %>

@@ -11,6 +11,11 @@ var characterRoutes = require("./routes/character"),
     
 //==========================================
 
+//changes:
+//character schema - level, + race
+//prevent script injection
+
+
 mongoose.connect("mongodb://localhost/chronicles_2");
 mongoose.Promise = global.Promise;
 
@@ -24,18 +29,6 @@ app.use("/sessions", sessionRoutes);
 
 
 //==========================================
-
-
-
-
-
-
-//==========================================
-
-
-//Character Routes
-//=============================
-
 
 
 app.listen(process.env.PORT, process.env.IP, function(){

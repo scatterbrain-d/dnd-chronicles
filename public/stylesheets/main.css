@@ -1,7 +1,3 @@
-h1 {
-    color: red;
-}
-
 .navbar-brand {
     padding: 0 15px;
 }
@@ -10,12 +6,9 @@ h1 {
     width: 15%;
 }
 
-.red {
-    background-color: red;
-}
-
-.blue {
-    background-color: blue;
+body {
+    font-family: 'Alegreya', serif;
+    font-size: 2em;
 }
 
 .newform {
@@ -27,4 +20,22 @@ h1 {
 .characterform {
     width: 20%;
     display: inline-block;
+}
+
+.card {
+    text-align: center;
+}
+
+.card img {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+}
+
+.navbar {
+}
+
+.navbar span {
+    font-size: 125%;
+    font-weight: bold;
 }
