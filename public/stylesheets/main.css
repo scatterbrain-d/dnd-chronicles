@@ -9,6 +9,8 @@
 body {
     font-family: 'Alegreya', serif;
     font-size: 2em;
+    background-image: url("/images/mountains.jpg");
+    background-size: cover;
 }
 
 .newform {
@@ -38,4 +40,14 @@ body {
 .navbar span {
     font-size: 125%;
     font-weight: bold;
+}
+
+.backdrop {
+    width: 98%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0.5em;
+}
+
+.session {
+    padding: 0.5em;
 }

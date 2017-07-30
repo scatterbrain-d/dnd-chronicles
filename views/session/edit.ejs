@@ -1,8 +1,8 @@
 <% include ../partials/header %>
 
-<div class="container">
-    <div class="newform">
-        <form action="/sessions/<%= session._id %>?_method=PUT" method="POST">
+<div class="container newform">
+    <div class="backdrop">
+        <form class="session" action="/sessions/<%= session._id %>?_method=PUT" method="POST">
             
             <div class="form-group">
                 <label>Session Title</label>
