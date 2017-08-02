@@ -1,43 +1,27 @@
 <% include ../partials/header %>
     
-    <div class="container newform">
-        <h2><strong>Add New Character</strong></h2>
-        <div class="backdrop">
-            <form class="session" action="/characters" method="POST">
-                
-                <div class="form-group">
-                    <label>Name</label>
-                    <input class="form-control" type="text" placeholder="name" name="character[name]">
-                </div>
-            
-                <div class="form-group">
-                    <label>Class</label>
-                    <input class="form-control" type="text" placeholder="class" name="character[gameClass]">
-                </div>
-            
-                <div class="form-group">
-                    <label>Skill</label>
-                    <input class="form-control" type="text" placeholder="skill" name="character[skill]">
-                </div>
-            
-                <div class="form-group">
-                    <label>Image URL</label>
-                    <input class="form-control" type="text" placeholder="image" name="character[image]">
-                </div>
-            
-                <div class="form-group">
-                    <label>Likes</label>
-                    <input class="form-control" type="text" placeholder="likes" name="character[likes]">
-                </div>
-            
-                <div class="form-group">
-                    <label>Dislikes</label>
-                    <input class="form-control" type="text" placeholder="dislikes" name="character[dislikes]">
-                </div>
-            
-                <button type="Submit">Submit</button>
-            </form>
-        </div>
+    <div class="container">
+        <form action="/characters" method="POST">
+            <div>
+                <input type="text" placeholder="name" name="character[name]">
+            </div>
+            <div>
+                <input type="text" placeholder="class" name="character[gameClass]">
+            </div>
+            <div>
+                <input type="text" placeholder="skill" name="character[skill]">
+            </div>
+            <div>
+                <input type="text" placeholder="image" name="character[image]">
+            </div>
+            <div>
+                <input type="text" placeholder="likes" name="character[likes]">
+            </div>
+            <div>
+                <input type="text" placeholder="dislikes" name="character[dislikes]">
+            </div>
+            <button type="Submit">Submit</button>
+        </form>
     </div>        
 
 <% include ../partials/footer %>
