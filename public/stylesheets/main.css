@@ -9,8 +9,12 @@
 body {
     font-family: 'Alegreya', serif;
     font-size: 2em;
-    background-image: url("/images/mountains.jpg");
+    /*background-image: url("/images/bg1.jpg");*/
     background-size: cover;
+}
+
+h2 {
+    font-weight: bold;
 }
 
 .newform {
@@ -34,12 +38,10 @@ body {
     object-fit: contain;
 }
 
-.navbar {
-}
-
 .navbar span {
     font-size: 125%;
     font-weight: bold;
+    color: black;
 }
 
 .backdrop {
@@ -48,6 +50,29 @@ body {
     border-radius: 0.5em;
 }
 
+.profile-backdrop {
+    margin: auto;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0.5em;
+    border: 5px solid #BBB;
+}
+
+.profile-pic {
+    max-width: 50%;
+    border: 2px solid #444;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .session {
     padding: 0.5em;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
 }

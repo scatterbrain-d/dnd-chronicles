@@ -1,18 +1,28 @@
 <% include ../partials/header %>
 
     <div class="container">
-        <h2><%= session.title %></h2>
-        <p>Party Members:
-            <% var party = session.characters; %>
-            <% party.forEach(function(character){ %>    
-                <a href="/characters/<%= character._id %>" ><%= character.name + " " %></a>
-            <% }) %>
-        </p>
-        <p><%- session.content %></p>
-        <a href="/sessions/<%= session._id %>/edit"><button class="btn btn-xs btn-warning">Edit</button></a>
-        <form action="/sessions/<%= session._id %>?_method=DELETE" method="POST">
-            <button class="btn btn-danger btn-xs">Delete</button>
-        </form>
+        <div class="backdrop">
+            <div class="session">
+                <div class="title">
+                    <h2><%= session.title %></h2>
+                    <p>DM: <%= session.dm %></p>
+                    <p>Party Members: |
+                        <% var party = session.characters; %>
+                        <% party.forEach(function(character){ %>    
+                            <a href="/characters/<%= character._id %>" ><%= character.name %></a> <span> | </span>
+                        <% }) %>
+                    </p>
+                    <hr>
+                </div>
+                <p><%- session.content %></p>
+                <div>
+                    <a href="/sessions/<%= session._id %>/edit"><button class="btn btn-info">Edit</button></a>
+                    <form class="pull-right" action="/sessions/<%= session._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-primary">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 <% include ../partials/footer %>

@@ -1,12 +1,20 @@
+<% var bgArray = ["bg1.jpg","bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg"]; %>
+<% var imageIndex = Math.floor(Math.random() * 6) %>
+<% var bgImage = bgArray[imageIndex]; %>
 <!DOCTYPE html>
     <html>
         <head>
             <title>D&D Chronicles</title>
+            <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ng304450n3o88dwhblix6ymtl0ov3xuz3nw0gr3l9yhk7h8b"></script>
+          <script> 
+              tinymce.init({selector: '#content'});
+          </script>
             <link href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <link rel="stylesheet" href="/stylesheets/main.css">
         </head>
-        <body>
+
+        <body style="background-image: url(<%= "/images/" + bgImage %>)">
             <div class="container-fluid">
                 <nav class="navbar navbar-default">
                     <div class="container">
@@ -16,10 +24,10 @@
                             </a>
                             <ul class="nav navbar-nav navbar-left">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/sessions/new">Add Session</a>
+                                    <a class="nav-link" href="/characters">Characters</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/characters">Characters</a>
+                                    <a class="nav-link" href="/sessions/new">Add Session</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/characters/new">Add Character</a>
