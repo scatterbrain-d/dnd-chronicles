@@ -16,7 +16,7 @@ var characterRoutes = require("./routes/character"),
 //collapsable sidebar?
 
 
-mongoose.connect("mongodb://localhost/chronicles_3");
+mongoose.connect(process.env.DATABASEURL);
 mongoose.Promise = global.Promise;
 
 app.set("view engine", "ejs");
