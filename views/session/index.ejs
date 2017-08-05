@@ -5,6 +5,7 @@
         <div class="col-xs-4 col-sm-3 col-md-2 red">
             <ol>
                 <% sessions.forEach(function(entry){ %>
+<<<<<<< HEAD
                     <li><a href="#<%= entry._id %>"><strong><%= entry.title %></strong></a></li>
                 <% }) %>
             </ol>
@@ -18,6 +19,17 @@
                     <a href="/sessions/<%= entry._id %>" type="button">Details</a>
                 </div>
             <% }); %>
+=======
+                    <div class="session">
+                        <h2><a name="<%= entry._id %>"></a><strong><%= entry.title %></strong></h2>
+                        <p><%- entry.content %></p>
+                        <button class="btn btn-info" href="/sessions/<%= entry._id %>">Details</button>
+                        <button class="btn btn-primary" href="/sessions/<%= entry._id %>/edit">Edit</button>
+                        <hr>
+                    </div>
+                <% }); %>
+            </div>
+>>>>>>> moron
         </div>
     </div>
 </div>

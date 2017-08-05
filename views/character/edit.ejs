@@ -1,27 +1,44 @@
 <% include ../partials/header %>
     
-    <div class="container">
-        <form action="/characters/<%= character.id %>?_method=PUT" method="POST">
-            <div>
-                <input type="text" value="<%= character.name %>" name="character[name]">
+    <div class="container newform">
+        <h2>Edit <%= character.name %></h2>
+        <div class="backdrop">
+            <form class="session" action="/characters/<%= character.id %>?_method=PUT" method="POST">
+            
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" type="text" value="<%= character.name %>" name="character[name]">
             </div>
-            <div>
-                <input type="text" value="<%= character.gameClass %>" name="character[gameClass]">
+            
+            <div class="form-group">
+                <label>Class</label>
+                <input class="form-control" type="text" value="<%= character.gameClass %>" name="character[gameClass]">
             </div>
-            <div>
-                <input type="text" value="<%= character.skill %>" name="character[skill]">
+            
+            <div class="form-group">
+                <label>Unique Skill</label>
+                <input class="form-control" type="text" value="<%= character.skill %>" name="character[skill]">
             </div>
-            <div>
-                <input type="text" value="<%= character.image %>" name="character[image]">
+            
+            <div class="form-group">
+                <label>Image</label>
+                <input class="form-control" type="text" value="<%= character.image %>" name="character[image]">
             </div>
-            <div>
-                <input type="text" value="<%= character.likes %>" name="character[likes]">
+            
+            <div class="form-group">
+                <label>Likes</label>
+                <input class="form-control" type="text" value="<%= character.likes %>" name="character[likes]">
             </div>
-            <div>
-                <input type="text" value="<%= character.dislikes %>" name="character[dislikes]">
+            
+            <div class="form-group">
+                <label>Dislikes</label>
+                <input class="form-control" type="text" value="<%= character.dislikes %>" name="character[dislikes]">
             </div>
-            <button type="Submit">Submit</button>
+            
+            <button class="btn btn-info" href="/characters/<%= character.id %>">Go Back</button>
+            <button class="pull-right btn btn-primary" type="Submit">Submit</button>
         </form>
+        </div>
     </div>        
 
 <% include ../partials/footer %>

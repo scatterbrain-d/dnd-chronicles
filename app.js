@@ -13,7 +13,7 @@ var characterRoutes = require("./routes/character"),
 
 //changes:
 //character schema - level, + race
-//prevent script injection
+//collapsable sidebar?
 
 
 mongoose.connect("mongodb://localhost/chronicles_2");

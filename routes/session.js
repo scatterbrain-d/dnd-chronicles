@@ -32,7 +32,7 @@ router.post("/", function(req, res){
         if (err){
             console.log(err);
         } else {
-            res.redirect("/session");
+            res.redirect("/sessions");
         }
     });
 });

@@ -49,12 +49,11 @@
                  
             <div class="form-group">
                 <label>Session Content</label>
-                <textarea class="form-control" name="session[content]"><%- session.content %></textarea>
+                <textarea id="content" class="form-control" name="session[content]"><%- session.content %></textarea>
             </div>
-            
-            <input type="submit">
+            <button class="btn btn-info" href="/sessions/<%= session._id %>">Go Back</button>
+            <input class="btn btn-primary pull-right" type="submit">
         </form>
-        <a class="pull-right" href="/sessions/<%= session._id %>"><button>Go Back</button></a>
     </div>
 </div>
 
