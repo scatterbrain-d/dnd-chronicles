@@ -7,9 +7,9 @@
                 <p>Class: <%= character.gameClass %></p>
                 <p>Likes: <%- character.likes %></p>
                 <p>Dislikes: <%- character.dislikes %></p>
-                <a href="/characters/<%= character._id %>/edit">Edit</a>
-                <form action="/characters/<%= character._id %>?_method=DELETE" method="POST">
-                    <button>Delete</button>
+                <form class="form-inline" action="/characters/<%= character._id %>?_method=DELETE" method="POST">
+                    <a class="btn btn-info" href="/characters/<%= character._id %>/edit">Edit</a>
+                    <button class="btn btn-primary">Delete</button>
                 </form>
             </div>
         </div>

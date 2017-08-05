@@ -19,8 +19,8 @@
                     <div class="session">
                         <h2><a name="<%= entry._id %>"></a><strong><%= entry.title %></strong></h2>
                         <p><%- entry.content %></p>
-                        <a href="/sessions/<%= entry._id %>/edit" type="button">Edit</a>
-                        <a href="/sessions/<%= entry._id %>" type="button">Details</a>
+                        <button class="btn btn-info" href="/sessions/<%= entry._id %>">Details</button>
+                        <button class="btn btn-primary" href="/sessions/<%= entry._id %>/edit">Edit</button>
                         <hr>
                     </div>
                 <% }); %>

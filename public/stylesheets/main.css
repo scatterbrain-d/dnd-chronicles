@@ -18,7 +18,7 @@ h2 {
 }
 
 .newform {
-    width: 40%;
+    width: 50%;
     min-width: 500px;
     margin: auto;
 }
@@ -48,6 +48,7 @@ h2 {
     width: 98%;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 0.5em;
+    border: 3px solid #BBB;
 }
 
 .profile-backdrop {
@@ -55,12 +56,13 @@ h2 {
     width: 80%;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 0.5em;
-    border: 5px solid #BBB;
+    border: 3px solid #BBB;
 }
 
 .profile-pic {
     max-width: 50%;
-    border: 2px solid #444;
+    border: 2px solid #BBB;
+    border-radius: 0.5em;
 }
 
 .flex-container {
