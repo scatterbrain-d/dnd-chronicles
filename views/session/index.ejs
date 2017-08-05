@@ -2,24 +2,20 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-4 col-sm-3 col-md-2 red">
-            <ol>
-                <% sessions.forEach(function(entry){ %>
-<<<<<<< HEAD
-                    <li><a href="#<%= entry._id %>"><strong><%= entry.title %></strong></a></li>
-                <% }) %>
-            </ol>
+        
+        <div class="col-xs-4 col-sm-3 col-md-2">
+            <div class="backdrop">           
+                <ol>
+                    <% sessions.forEach(function(entry){ %>
+                        <li><a href="#<%= entry._id %>"><strong><%= entry.title %></strong></a></li>
+                    <% }) %>
+                </ol>
+            </div> 
         </div>
-        <div class="col-xs-8 blue col-sm-9 col-md-10 blue">
-            <% sessions.forEach(function(entry){ %>
-                <div>
-                    <h2><a name="<%= entry._id %>"></a><strong><%= entry.title %></strong></h2>
-                    <p><%- entry.content %></p>
-                    <a href="/sessions/<%= entry._id %>/edit" type="button">Edit</a>
-                    <a href="/sessions/<%= entry._id %>" type="button">Details</a>
-                </div>
-            <% }); %>
-=======
+        
+        <div class="col-xs-8 blue col-sm-9 col-md-10">
+            <div class="backdrop">
+                <% sessions.forEach(function(entry){ %>
                     <div class="session">
                         <h2><a name="<%= entry._id %>"></a><strong><%= entry.title %></strong></h2>
                         <p><%- entry.content %></p>
@@ -29,11 +25,9 @@
                     </div>
                 <% }); %>
             </div>
->>>>>>> moron
         </div>
+        
     </div>
 </div>
-
-
 
 <% include ../partials/footer %>

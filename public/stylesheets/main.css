@@ -9,11 +9,8 @@
 body {
     font-family: 'Alegreya', serif;
     font-size: 2em;
-<<<<<<< HEAD
-=======
     /*background-image: url("/images/bg1.jpg");*/
     background-size: cover;
->>>>>>> moron
 }
 
 h2 {
@@ -44,8 +41,6 @@ h2 {
 .navbar span {
     font-size: 125%;
     font-weight: bold;
-<<<<<<< HEAD
-=======
     color: black;
 }
 
@@ -82,5 +77,4 @@ h2 {
 .title {
     text-align: center;
     font-weight: bold;
->>>>>>> moron
 }
