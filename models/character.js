@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var characterSchema = new mongoose.Schema({
     name: String,
-    level: Number,
+    race: String,
     gameClass: String,
     skill: String,
     image: String,
