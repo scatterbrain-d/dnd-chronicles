@@ -1,12 +1,20 @@
 var express = require("express"),
     router =  express.Router();
 
+var mongoose = require("mongoose");
+
 var Character = require("../models/character.js"),
     Session   = require("../models/session.js");
 
+//landing
+router.get("/", function(req, res) {
+    res.redirect("/sessions");
+});
+
+
 //index
-router.get("/", function(req, res){
-    Session.find({}, function(err, sessions){
+router.get("/sessions", function(req, res){
+    Session.find({}).sort({_id:1}).exec(function(err, sessions){
         if (err){
             console.log(err);
         } else {
@@ -16,7 +24,7 @@ router.get("/", function(req, res){
 });
 
 //new
-router.get("/new", function(req, res){
+router.get("/sessions/new", function(req, res){
     Character.find({}, function(err, characters){
         if (err) {
             console.log(err);
@@ -27,7 +35,7 @@ router.get("/new", function(req, res){
 });
 
 //create
-router.post("/", function(req, res){
+router.post("/sessions", function(req, res){
     Session.create(req.body.session, function(err, createdSession){
         if (err){
             console.log(err);
@@ -38,7 +46,7 @@ router.post("/", function(req, res){
 });
 
 //show
-router.get("/:id", function(req, res){
+router.get("/sessions/:id", function(req, res){
     Session.findById(req.params.id).populate("characters").exec(function(err, foundSession){
         if (err){
             console.log(err);
@@ -49,7 +57,7 @@ router.get("/:id", function(req, res){
 });
 
 //edit
-router.get("/:id/edit", function(req, res){
+router.get("/sessions/:id/edit", function(req, res){
     Character.find({}, function(err, characters){
         if (err) {
             console.log(err);
@@ -67,7 +75,7 @@ router.get("/:id/edit", function(req, res){
 });
 
 //update
-router.put("/:id", function(req, res){
+router.put("/sessions/:id", function(req, res){
     req.body.session.party = req.body.newParty;
     Session.findByIdAndUpdate(req.params.id, req.body.session, function(err, updatedSession){
         if (err){
@@ -80,7 +88,7 @@ router.put("/:id", function(req, res){
 });
 
 //delete
-router.delete("/:id", function(req, res){
+router.delete("/sessions/:id", function(req, res){
     Session.findByIdAndRemove(req.params.id, function(err){
         if (err) {
             console.log(err);

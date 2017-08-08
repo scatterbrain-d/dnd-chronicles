@@ -6,17 +6,16 @@ var methodOverride = require("method-override"),
     
 //==========================================
 
-var characterRoutes = require("./routes/character"),
-    sessionRoutes =   require("./routes/session");
-    
+var sessionRoutes =   require("./routes/session"),
+    characterRoutes = require("./routes/character");
 //==========================================
 
 //changes:
-//character schema - level, + race
 //collapsable sidebar?
 
+var dbase = process.env.DATABASEURL || "mongodb://localhost/chronicles_3";
 
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect(dbase);
 mongoose.Promise = global.Promise;
 
 app.set("view engine", "ejs");
@@ -24,9 +23,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
+app.use("", sessionRoutes);
 app.use("/characters", characterRoutes);
-app.use("/sessions", sessionRoutes);
-
 
 //==========================================
 
