@@ -1,15 +1,133 @@
-.navbar-brand {
-    padding: 0 15px;
+html {
+    box-sizing: border-box;
 }
 
-.navbar-fixed-left {
+body {
+    margin: 0;
+}
+
+h1 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.flex-nav {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    border-radius: 0.5em;
+    top: 0;
+    height: 50px;
+
+}
+
+.flex-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+
+}
+
+.flex-nav li{
+    text-decoration: none;
+    flex: 1;
+    justify-content: center;
+    display: flex;
+    transition: all 1s;
+    transition-timing-function: ease;
+    align-items: center;
+}
+
+.logo {
+    max-width: 0;
+    overflow: hidden;
+    height: 50px;
+    background-image: url(/images/dragonlong.png);
+    font-weight: bold;
+    font-size: 20px;
+    color: rgba(0,0,0,0);
+}
+
+.logo span {
+    overflow:hidden;
+}
+
+.fixed .logo {
+    max-height: 50px;
+    max-width: 500px;
+    color: rgba(0,0,0,1);
+}
+
+.navLinks {
+    text-decoration: none;
+    color: black;
+    margin: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    padding: 0 5px;
+}
+
+a :link {
+    text-decoration: none!important;
+}
+
+.wrapper {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: center;
+    margin: auto;
+    width: 90%;
+}
+
+.chapters {
+    top: inherit;
     width: 15%;
+    overflow-y: scroll;
+    height: calc(100vh - 50px);
+    float: left;
+    position: absolute;
+    margin-top: 0;
+}
+
+.fixed .chapters {
+    position: fixed;
+    top: 50px;
+    transition: 1s;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.chapters ul {
+    list-style: none;
+    padding: 5px;
+}
+
+.chapters ul hr {
+    padding:0;
+}
+
+.content {
+    width: 75%;
+    float: right;
+}
+
+.fixed .content {
+    width: 80%;
+    transition: 1s;
 }
 
 body {
     font-family: 'Alegreya', serif;
     font-size: 2em;
     background-size: cover;
+    min-height: 100vh;
+}
+
+.fixed .flex-nav {
+    position: fixed;
+
 }
 
 h2 {
@@ -29,12 +147,21 @@ h2 {
 
 .card {
     text-align: center;
+    flex: 1 1 20%;
+    margin: 10px;
+    min-width: 250px;
+    transition: all 0.3s;
+}
+
+.card-active {
+    transform: scale(1.1);
 }
 
 .card img {
-    width: 280px;
-    height: 280px;
+    max-width: 98%;
+    height: 300px;
     object-fit: contain;
+    z-index:1;
 }
 
 .navbar span {
@@ -44,10 +171,10 @@ h2 {
 }
 
 .backdrop {
-    width: 98%;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 0.5em;
     border: 3px solid #BBB;
+    margin: 2%;
 }
 
 .profile-backdrop {
@@ -76,4 +203,17 @@ h2 {
 .title {
     text-align: center;
     font-weight: bold;
+}
+
+.highlight {
+  transition: all 0.2s;
+  border-bottom:2px solid white;
+  position: absolute;
+  top:0;
+  background:white;
+  left:0;
+  z-index: -1;
+  border-radius:20px;
+  display: block;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }

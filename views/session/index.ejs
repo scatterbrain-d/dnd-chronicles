@@ -1,33 +1,23 @@
 <% include ../partials/header %>
 
-<div class="container">
-    <div class="row">
+<div>
+    <div class="backdrop chapters">           
+        <ul>
+            <% sessions.forEach(function(entry, i){ %>
+                <li><a href="#<%= entry._id %>"><strong><%=i +1%>. <%= entry.title %></strong></a></li>
+                <hr>
+            <% }) %>
+        </ul>
+    </div> 
         
-        <div class="col-xs-4 col-sm-3 col-md-2">
-            <div class="backdrop">           
-                <ol>
-                    <% sessions.forEach(function(entry){ %>
-                        <li><a href="#<%= entry._id %>"><strong><%= entry.title %></strong></a></li>
-                    <% }) %>
-                </ol>
-            </div> 
-        </div>
-        
-        <div class="col-xs-8 blue col-sm-9 col-md-10">
-            <div class="backdrop">
-                <% sessions.forEach(function(entry){ %>
-                    <div class="session">
-                        <h2><a name="<%= entry._id %>"></a><strong><%= entry.title %></strong></h2>
-                        <p><%- entry.content %></p>
-                        <a class="btn btn-info" href="/sessions/<%= entry._id %>">Details</a>
-                        <a class="btn btn-primary" href="/sessions/<%= entry._id %>/edit">Edit</a>
-                        <hr>
-                    </div>
-                <% }); %>
-            </div>
-        </div>
-        
+    <div class="backdrop content">
+        <% sessions.forEach(function(entry){ %>
+        <div class="session">
+            <h2 class="title"><a name="<%= entry._id %>"></a><%= entry.title %></h2>
+            <p><%- entry.content.substring(0, 500)%>...   <a href="/sessions/<%= entry._id %>">Read More</a></p>
+            <hr>
+        <% }); %>
     </div>
 </div>
-
+        
 <% include ../partials/footer %>

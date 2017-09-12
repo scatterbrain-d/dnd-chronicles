@@ -1,2 +1,43 @@
+                <script>
+                        const links = document.querySelectorAll(".navLinks");
+                        const highlight = document.createElement("span");
+                        highlight.classList.add("highlight");
+                        document.body.append(highlight);
+                        
+                        const navBar = document.querySelector(".flex-nav");
+                        const topOfNav = navBar.offsetTop;
+                        const wrapper = document.querySelector("body>div");
+                        const navHighlight = document.querySelector(".highlight");
+                        
+                        function fixNav(){
+                                if (window.scrollY >= topOfNav){
+                                        wrapper.style.paddingTop = navBar.offsetHeight + "px";
+                                        document.body.classList.add("fixed");
+                                        highlight.style.opacity = 0;
+                                } else {
+                                        wrapper.style.paddingTop = 0;
+                                        document.body.classList.remove("fixed");
+                                        highlight.style.opacity = 0;
+                                        }
+                                }
+            
+                        function highlightLink(){
+                                const linkCoords = this.getBoundingClientRect();
+                                const coords = {
+                                        width: linkCoords.width,
+                                        height: linkCoords.height,
+                                        left: linkCoords.left + window.scrollX,
+                                        top: linkCoords.top + window.scrollY
+                                        }
+                                highlight.style.width = `${coords.width}px`;
+                                highlight.style.height = `${coords.height}px`;
+                                highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+                                highlight.style.opacity = 1;
+                                console.log("!")
+                        }
+                        
+                        window.addEventListener("scroll", fixNav);
+                        links.forEach(link => link.addEventListener("mouseenter", highlightLink));
+                </script>
         </body>
     </html>
