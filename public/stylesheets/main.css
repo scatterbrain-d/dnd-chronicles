@@ -9,10 +9,11 @@ body {
 h1 {
     font-weight: bold;
     text-align: center;
+    text-shadow: 1px 1px 2px white;
 }
 
 .flex-nav {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(50, 50, 50, 0.9);
     width: 100%;
     border-radius: 0.5em;
     top: 0;
@@ -39,6 +40,11 @@ h1 {
     align-items: center;
 }
 
+.flex-nav a {
+    z-index: 2;
+    color: white;
+}
+
 .logo {
     max-width: 0;
     overflow: hidden;
@@ -56,7 +62,7 @@ h1 {
 .fixed .logo {
     max-height: 50px;
     max-width: 500px;
-    color: rgba(0,0,0,1);
+    color: black;
 }
 
 .navLinks {
@@ -66,10 +72,6 @@ h1 {
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     padding: 0 5px;
-}
-
-a :link {
-    text-decoration: none!important;
 }
 
 .wrapper {
@@ -106,6 +108,11 @@ a :link {
 
 .chapters ul hr {
     padding:0;
+    margin: 10px 0;
+}
+
+.chapters a {
+    color: inherit;
 }
 
 .content {
@@ -207,13 +214,27 @@ h2 {
 
 .highlight {
   transition: all 0.2s;
-  border-bottom:2px solid white;
+  border-bottom:2px solid teal;
   position: absolute;
   top:0;
-  background:white;
+  background: rgba(255,255,255,0.2);
   left:0;
-  z-index: -1;
+  z-index: 0;
   border-radius:20px;
   display: block;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.editButton {
+    background-color: teal;
+    color: white;
+}
+
+.editButton a {
+    color: white;
+}
+
+.deleteButton {
+    background-color: #333;
+    color: white;
 }

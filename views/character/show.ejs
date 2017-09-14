@@ -10,8 +10,8 @@
                 <p><strong>Likes:</strong> <%- character.likes %></p>
                 <p><strong>Dislikes:</strong> <%- character.dislikes %></p>
                 <form class="form-inline" action="/characters/<%= character._id %>?_method=DELETE" method="POST">
-                    <a class="btn btn-info" href="/characters/<%= character._id %>/edit">Edit</a>
-                    <button class="btn btn-primary">Delete</button>
+                    <button class="editButton"><a href="/characters/<%= character._id %>/edit">Edit</a></button>
+                    <button class="deleteButton">Delete</button>
                 </form>
             </div>
         </div>
