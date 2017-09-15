@@ -81,6 +81,7 @@ h1 {
     align-content: center;
     margin: auto;
     width: 90%;
+    justify-content: space-around;
 }
 
 .chapters {
@@ -156,7 +157,8 @@ h2 {
     text-align: center;
     flex: 1 1 20%;
     margin: 10px;
-    min-width: 250px;
+    max-width: 30%;
+    min-width: 200px;
     transition: all 0.3s;
 }
 
