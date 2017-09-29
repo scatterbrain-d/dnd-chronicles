@@ -5,7 +5,7 @@ var express = require("express"),
 
 var Character = require("../models/character.js");
 
-//index
+//INDEX
 router.get("/", function(req, res){
     Character.find({}, function(err, character) {
         if (err) {
@@ -16,12 +16,12 @@ router.get("/", function(req, res){
     });
 });
 
-//new
+//NEW
 router.get("/new", function(req, res){
     res.render("character/new");
 });
 
-//create
+//CREATE
 router.post("/", function(req, res){
     Character.create(req.body.character, function(err, createdCharacter){
         if (err){
@@ -32,7 +32,7 @@ router.post("/", function(req, res){
     });
 });
 
-//show
+//SHOW
 router.get("/:id", function(req, res){
     Character.findById(req.params.id, function(err, character){
         if (err) {
@@ -43,7 +43,7 @@ router.get("/:id", function(req, res){
     });
 });
 
-//edit
+//EDIT
 router.get("/:id/edit", function(req, res){
     Character.findById(req.params.id, function(err, foundCharacter){
         if (err){
@@ -55,7 +55,7 @@ router.get("/:id/edit", function(req, res){
     });    
 });
 
-//update
+//UPDATE
 router.put("/:id", function(req, res){
     Character.findByIdAndUpdate(req.params.id, req.body.character, function(err, updatedCharacter){
         if (err){
@@ -67,7 +67,7 @@ router.put("/:id", function(req, res){
     });
 });
 
-//delete
+//DELETE
 router.delete("/:id", function(req, res){
     Character.findByIdAndRemove(req.params.id, function(err){
         if (err) {

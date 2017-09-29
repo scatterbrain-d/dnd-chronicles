@@ -10,9 +10,6 @@ var sessionRoutes =   require("./routes/session"),
     characterRoutes = require("./routes/character");
 //==========================================
 
-//changes:
-//collapsable sidebar?
-
 var dbase = process.env.DATABASEURL || "mongodb://localhost/chronicles_3";
 
 mongoose.connect(dbase);

@@ -1,7 +1,12 @@
 <% include ../partials/header %>
     
+    <!--********** CHARACTER EDIT FORM **********-->
+    <!-- Existing character data pulled in from database to populate the form via Character EDIT route-->
+    
     <div class="container newform">
-        <h2 class="title">Edit <%= character.name %></h2>
+        
+        <h2>Edit <%= character.name %></h2>
+        
         <div class="backdrop">
             <form class="session" action="/characters/<%= character.id %>?_method=PUT" method="POST">
             
@@ -40,10 +45,13 @@
                 <input class="form-control" type="text" value="<%= character.dislikes %>" name="character[dislikes]">
             </div>
             
+            <!-- This button cancels edit and returns to Character SHOW page -->
             <button class="deleteButton" href="/characters/<%= character.id %>">Go Back</button>
+            
+            <!-- This button submits updated character data via Character UPDATE route -->
             <button class="editButton pull-right" type="Submit">Submit</button>
+        
         </form>
         </div>
     </div>        
-
 <% include ../partials/footer %>

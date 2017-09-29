@@ -1,52 +1,66 @@
 <% include ../partials/header %>
 
-<div class="container newform">
-    <h2 class="title">Add New Session</h2>
-    <div class="backdrop">
-        <form class="session" action="/sessions" method="POST">
+    <!--********** NEW SESSION FORM **********-->
+    <!-- Existing character data pulled in from database to populate "Party Members" via SESSION EDIT route-->
+
+    <div class="container newform">
+        
+        <h2>Add New Session</h2>
+        
+        <div class="backdrop">
+            <form class="session" action="/sessions" method="POST">
+                
+                <div class="form-group">
+                    <label>Session Title</label>
+                    <input class="form-control" type="text" name="session[title]" placeholder="title">
+                </div>
+                
+                <div class="form-group">
+                    <label>Session Date</label>
+                    <input class="form-control" type="text" name="session[date]" placeholder="mm/dd/yy">
+                </div>
+                
+                <div class="form-group">
+                    <label>Dungeon Master</label>
+                    <input class="form-control" type="text" name="session[dm]" placeholder="DM">
+                </div>
+                
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input class="form-control" type="text" name="session[image]" placeholder="image">
+                </div>
+                
+                <div class="form-group">
+                    <label>Image Caption</label>
+                    <input class="form-control" type="text" name="session[caption]" placeholder="caption">
+                </div>
+                
+                <div class="form-group form-check form-check-inline">
+                    <label class="form-check-label">Party Members<br>
+                    
+                    <!-- outputs each character in database, passes character id into session data if checked -->
+                    <% characters.forEach(function(character){ %>
+                        <input class="form-check-input inlineCheck" type="checkbox" name="session[characters]" value="<%= character._id %>" id="<%= character._id %>">
+                        <label for="<%= character._id %>"><%= character.name%></label>
+                    <% }); %>
+                    
+                    </label>
+                </div>
+                     
+                <!-- TinyMCE used to format session text content -->
+                <div class="form-group">
+                    <label>Session Content</label>
+                    <textarea id="content" class="form-control" name="session[content]"></textarea>
+                </div>
+                
+                <!-- this button cancels session creation and returns to session INDEX page -->
+                <button class="deleteButton" href="/sessions">Go Back</button>
+                
+                <!-- this button passes data to database as a new session, then redirects to session INDEX via CREATE route -->
+                <button class="editButton pull-right" type="submit">Submit</button>
             
-            <div class="form-group">
-                <label>Session Title</label>
-                <input class="form-control" type="text" name="session[title]" placeholder="title">
-            </div>
-            
-            <div class="form-group">
-                <label>Session Date</label>
-                <input class="form-control" type="text" name="session[date]" placeholder="mm/dd/yy">
-            </div>
-            
-            <div class="form-group">
-                <label>Dungeon Master</label>
-                <input class="form-control" type="text" name="session[dm]" placeholder="DM">
-            </div>
-            
-            <div class="form-group">
-                <label>Image URL</label>
-                <input class="form-control" type="text" name="session[image]" placeholder="image">
-            </div>
-            
-            <div class="form-group">
-                <label>Image Caption</label>
-                <input class="form-control" type="text" name="session[caption]" placeholder="caption">
-            </div>
-            
-            <div class="form-group form-check form-check-inline">
-                <label class="form-check-label">Party Members<br>
-                <% characters.forEach(function(character){ %>
-                    <input class="form-check-input inlineCheck" type="checkbox" name="session[characters]" value="<%= character._id %>" id="<%= character._id %>">
-                    <label for="<%= character._id %>"><%= character.name %></label>
-                <% }); %>
-                </label>
-            </div>
-                 
-            <div class="form-group">
-                <label>Session Content</label>
-                <textarea id="content" class="form-control" name="session[content]"></textarea>
-            </div>
-            <button class="deleteButton" href="/sessions">Go Back</button>
-            <button class="editButton pull-right" type="submit">Submit</button>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 
 <% include ../partials/footer %>

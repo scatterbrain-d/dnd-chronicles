@@ -1,7 +1,12 @@
 <% include ../partials/header %>
     
+    <!--********** CHARACTER NEW **********-->
+    <!-- No data passed through the NEW route -->
+    
     <div class="container newform">
-        <h2><strong>Add New Character</strong></h2>
+        
+        <h2><Add New Character</h2>
+        
         <div class="backdrop">
             <form class="session" action="/characters" method="POST">
                 
@@ -40,11 +45,13 @@
                     <input class="form-control" type="text" placeholder="dislikes" name="character[dislikes]">
                 </div>
                 
+                <!-- This button cancels character creation and returns to INDEX -->
                 <button class="deleteButton" href="/characters">Go Back</button>
+                
+                <!-- This button creates new character data via the Character CREATE route -->
                 <button class="pull-right editButton" type="Submit">Submit</button>
+            
             </form>
         </div>
     </div>        
-
-
 <% include ../partials/footer %>

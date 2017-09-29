@@ -1,16 +1,31 @@
-html {
-    box-sizing: border-box;
-}
+/* TABLE OF CONTENTS */
+/* 1. BODY */
+/* 2. TOP NAVBAR */
+/* 3. SESSION INDEX/SHOW */
+/* 4. CHARACTER INDEX/SHOW */
+/* 5. FORMS AND BUTTONS */
+
+/*
+    1.========== BODY ==========
+*/
 
 body {
     margin: 0;
+    font-family: 'Alegreya', serif;
+    font-size: 2em;
+    background-size: cover;
+    min-height: 100vh;
 }
 
-h1 {
+h1, h2, h3 {
     font-weight: bold;
     text-align: center;
     text-shadow: 1px 1px 2px white;
 }
+
+/*
+    2.========== TOP NAVBAR ==========
+*/
 
 .flex-nav {
     background-color: rgba(50, 50, 50, 0.9);
@@ -45,6 +60,7 @@ h1 {
     color: white;
 }
 
+/* logo hidden until scrolldown*/
 .logo {
     max-width: 0;
     overflow: hidden;
@@ -65,6 +81,12 @@ h1 {
     color: black;
 }
 
+
+/* navbar fixes to top upon scrolldown */
+.fixed .flex-nav {
+    position: fixed;
+}
+
 .navLinks {
     text-decoration: none;
     color: black;
@@ -74,14 +96,29 @@ h1 {
     padding: 0 5px;
 }
 
-.wrapper {
-    display:flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    align-content: center;
-    margin: auto;
-    width: 90%;
-    justify-content: space-around;
+/* highlight div follows cursor on anchors */
+.highlight {
+  transition: all 0.2s;
+  border-bottom:2px solid teal;
+  position: absolute;
+  top:0;
+  background: rgba(255,255,255,0.2);
+  left:0;
+  z-index: 0;
+  border-radius:20px;
+  display: block;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/*
+    3.========== SESSION INDEX/SHOW ==========
+*/
+
+.backdrop {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0.5em;
+    border: 3px solid #BBB;
+    margin: 2%;
 }
 
 .chapters {
@@ -92,12 +129,13 @@ h1 {
     float: left;
     position: absolute;
     margin-top: 0;
+    transition: 1s;
 }
 
+/* as navbar fixes to top, sidebar fixes to side and slides over */
 .fixed .chapters {
     position: fixed;
     top: 50px;
-    transition: 1s;
     margin-top: 0;
     margin-left: 0;
 }
@@ -114,43 +152,47 @@ h1 {
 
 .chapters a {
     color: inherit;
+    font-weight: bold;
+}
+
+/* adjusts bookmarks to compensate for fixed navbar */
+:target:before {
+    content: "";
+    display: block;
+    height: 50px;
+    margin: -50px 0 0;
 }
 
 .content {
     width: 75%;
     float: right;
-}
-
-.fixed .content {
-    width: 80%;
     transition: 1s;
 }
 
-body {
-    font-family: 'Alegreya', serif;
-    font-size: 2em;
-    background-size: cover;
-    min-height: 100vh;
+/* content expands slightly as sidebar moves over on scrolldown */
+.fixed .content {
+    width: 80%;
 }
 
-.fixed .flex-nav {
-    position: fixed;
+.session {padding: 0.5em;}
 
-}
-
-h2 {
+.sessiontitle {
     font-weight: bold;
+    text-align: center;
 }
 
-.newform {
-    width: 50%;
-    min-width: 500px;
+/*
+    4.========== CHARACTER INDEX/SHOW ==========
+*/
+
+.wrapper {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: center;
     margin: auto;
-}
-
-.characterform {
-    width: 20%;
-    display: inline-block;
+    width: 90%;
+    justify-content: space-around;
 }
 
 .card {
@@ -162,7 +204,7 @@ h2 {
     transition: all 0.3s;
 }
 
-.card-active {
+.card:hover {
     transform: scale(1.1);
 }
 
@@ -173,22 +215,11 @@ h2 {
     z-index:1;
 }
 
-.navbar span {
-    font-size: 125%;
-    font-weight: bold;
-    color: black;
-}
-
-.backdrop {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 0.5em;
-    border: 3px solid #BBB;
-    margin: 2%;
-}
-
 .profile-backdrop {
     margin: auto;
     width: 80%;
+    display: flex;
+    flex-direction: column;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 0.5em;
     border: 3px solid #BBB;
@@ -200,31 +231,14 @@ h2 {
     border-radius: 0.5em;
 }
 
-.flex-container {
-  display: flex;
-  flex-direction: column;
-}
+/*
+    5.========== BUTTONS AND FORMS ==========
+*/
 
-.session {
-    padding: 0.5em;
-}
-
-.title {
-    text-align: center;
-    font-weight: bold;
-}
-
-.highlight {
-  transition: all 0.2s;
-  border-bottom:2px solid teal;
-  position: absolute;
-  top:0;
-  background: rgba(255,255,255,0.2);
-  left:0;
-  z-index: 0;
-  border-radius:20px;
-  display: block;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+.newform {
+    width: 50%;
+    min-width: 500px;
+    margin: auto;
 }
 
 .editButton {
@@ -232,9 +246,7 @@ h2 {
     color: white;
 }
 
-.editButton a {
-    color: white;
-}
+.editButton a {color: white;}
 
 .deleteButton {
     background-color: #333;

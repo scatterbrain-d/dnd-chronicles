@@ -6,13 +6,13 @@ var mongoose = require("mongoose");
 var Character = require("../models/character.js"),
     Session   = require("../models/session.js");
 
-//landing
+//LANDING (redirect)
 router.get("/", function(req, res) {
     res.redirect("/sessions");
 });
 
 
-//index
+//INDEX
 router.get("/sessions", function(req, res){
     Session.find({}).sort({_id:1}).exec(function(err, sessions){
         if (err){
@@ -23,7 +23,7 @@ router.get("/sessions", function(req, res){
     });
 });
 
-//new
+//NEW
 router.get("/sessions/new", function(req, res){
     Character.find({}, function(err, characters){
         if (err) {
@@ -34,7 +34,7 @@ router.get("/sessions/new", function(req, res){
     });
 });
 
-//create
+//CREATE
 router.post("/sessions", function(req, res){
     Session.create(req.body.session, function(err, createdSession){
         if (err){
@@ -45,7 +45,7 @@ router.post("/sessions", function(req, res){
     });
 });
 
-//show
+//SHOW
 router.get("/sessions/:id", function(req, res){
     Session.findById(req.params.id).populate("characters").exec(function(err, foundSession){
         if (err){
@@ -56,7 +56,7 @@ router.get("/sessions/:id", function(req, res){
     });
 });
 
-//edit
+//EDIT
 router.get("/sessions/:id/edit", function(req, res){
     Character.find({}, function(err, characters){
         if (err) {
@@ -74,7 +74,7 @@ router.get("/sessions/:id/edit", function(req, res){
     });
 });
 
-//update
+//UPDATE
 router.put("/sessions/:id", function(req, res){
     req.body.session.party = req.body.newParty;
     Session.findByIdAndUpdate(req.params.id, req.body.session, function(err, updatedSession){
@@ -87,7 +87,7 @@ router.put("/sessions/:id", function(req, res){
     });
 });
 
-//delete
+//DELETE
 router.delete("/sessions/:id", function(req, res){
     Session.findByIdAndRemove(req.params.id, function(err){
         if (err) {

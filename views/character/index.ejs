@@ -1,9 +1,16 @@
 <% include ../partials/header %>
-    <div>
-        <h1 class="title"><strong>Hall of Heroes</strong></h1>
-        <div class="wrapper">
-            <% character.forEach(function(char){ %>
-                <div class="card">
+    
+    <!--********** CHARACTER INDEX **********-->
+    <!-- All character data passed through via Character INDEX route -->
+    
+    <h1>Hall of Heroes</h1>
+    
+    <div class="wrapper">
+        
+        <!-- Javascript to create card for each character with basic info -->
+        <% character.forEach(function(char){ %>
+            <div class="card">
+                <!-- Each card is a link to the individual Character SHOW route -->
                 <a class="thumbnail" href="/characters/<%= char.id %>">
                     <img src="<%= char.image %>">
                     <div class="caption">
@@ -11,18 +18,9 @@
                         <p><%= char.race %> <%= char.gameClass %></p>                    
                     </div>
                 </a>
-                </div>
-            <%  }); %>
-        </div>
+            </div>
+        <%  }); %>
+    
     </div>
     
-    <script>
-        const cards = document.querySelectorAll(".card");
-        
-        function showCard(){this.classList.add("card-active");}
-        function hideCard(){this.classList.remove("card-active");}
-        
-        cards.forEach(card => card.addEventListener("mouseenter", showCard));
-        cards.forEach(card => card.addEventListener("mouseleave", hideCard));
-    </script>
 <% include ../partials/footer %>
