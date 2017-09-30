@@ -5,29 +5,32 @@
   
     <div>
         <div class="backdrop chapters">           
+            
+            <span id="tableofcontents"><button onclick="toggleTOC()">=</button>Table of Contents</span>
+                
             <ul>
                 
                 <!-- lists session titles in a table of contents for quick reference -->
                 <% sessions.forEach(function(entry, i){ %>
-                    <li><a href="#<%= entry._id %>"><%=i +1%>. <%= entry.title %></a></li>
+                    <li><a href="#<%= entry._id %>" onclick="toggleTOC()"><%=i +1%>. <%= entry.title %></a></li>
                     <hr>
                 <% }) %>
             
             </ul>
         </div> 
         
-            
         <div class="backdrop content">
-            
-            <!-- outputs first 500 characters of each session with link to SHOW page for each -->
-            <% sessions.forEach(function(entry){ %>
+        
             <div class="session">
-                <h2 class="title"><a name="<%= entry._id %>"></a><%= entry.title %></h2>
-                <p><%- entry.content.substring(0, 500)%>...   <a href="/sessions/<%= entry._id %>">Read More</a></p>
-                <hr>
-            <% }); %>
-        
+                
+                <!-- outputs first 500 characters of each session with link to SHOW page for each -->
+                <% sessions.forEach(function(entry){ %>
+                    <h2 class="title"><a name="<%= entry._id %>"></a><%= entry.title %></h2>
+                    <p><%- entry.content.substring(0, 500)%>...   <a href="/sessions/<%= entry._id %>">Read More</a></p>
+                    <hr>
+                <% }); %>
+            
+            </div>
         </div>
-    </div>
-        
+    </div>    
 <% include ../partials/footer %>

@@ -2,34 +2,35 @@
 
     <!--********** CHARACTER SHOW **********-->
     <!-- Character data passed in via Character SHOW route -->
-    
-    <div class="container">
-        <div class="profile-backdrop">
-            <div class="session">
+
+    <div class="profile-backdrop">
+        <div class="session">
+            
+            <h3><%= character.name %></h3>
+            
+            <div class="profile">
+                <div class="profile-details">
+                    <p><span>Race:</span> <%= character.race %></p>
+                    <p><span>Class:</span> <%= character.gameClass %></p>
+                    <p><span>Unique Skill:</span> <%=character.skill %></p>
+                    <p><span>Likes:</span> <%= character.likes %></p>
+                    <p><span>Dislikes:</span> <%= character.dislikes %></p>
+                    
+                    <form class="form-inline" action="/characters/<%= character._id %>?_method=DELETE" method="POST">
+                    
+                        <!-- This button leads to editing via Character EDIT route -->
+                        <button class="editButton"><a href="/characters/<%= character._id %>/edit">Edit</a></button>
+                    
+                        <!-- This button permanently deletes the character via Character DELETE route -->
+                        <button class="deleteButton">Delete</button>
+                    
+                    </form>        
+                </div>
                 
-                <h3><%= character.name %></h3>
-                
-                <!-- Character image to the right -->
-                <img class="pull-right profile-pic" src="<%= character.image %>">
-                
-                <!-- Character info to the left -->
-                <p><strong>Race:</strong> <%= character.race %></p>
-                <p><strong>Class:</strong> <%= character.gameClass %></p>
-                <p><strong>Unique Skill:</strong> <%=character.skill %></p>
-                <p><strong>Likes:</strong> <%- character.likes %></p>
-                <p><strong>Dislikes:</strong> <%- character.dislikes %></p>
-                
-                <form class="form-inline" action="/characters/<%= character._id %>?_method=DELETE" method="POST">
-                
-                    <!-- This button leads to editing via Character EDIT route -->
-                    <button class="editButton"><a href="/characters/<%= character._id %>/edit">Edit</a></button>
-                
-                    <!-- This button permanently deletes the character via Character DELETE route -->
-                    <button class="deleteButton">Delete</button>
-                
-                </form>
+                <img class="profile-pic" src="<%= character.image %>">
+            
             </div>
         </div>
-    </div>        
+    </div>
 
 <% include ../partials/footer %>
