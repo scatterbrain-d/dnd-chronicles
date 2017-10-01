@@ -4,34 +4,35 @@
     <!-- Existing session data pulled in from database via Session SHOW route-->
     
         <div class="show backdrop">
-            <div class="session">
-                <div class="sessiontitle">
-                    <h2><%= session.title %></h2>
-                    <p>DM: <%= session.dm %></p>
-                    
-                    <p>Party Members: |
-                        <!-- outputs the characters featured in session as links to SHOW page of each -->
-                        <% var party = session.characters; %>
-                        <% party.forEach(function(character){ %>    
-                            <a href="/characters/<%= character._id %>" ><%= character.name %></a> <span> | </span>
-                        <% }) %>
-                    </p>
-                    
-                    <hr>
-                </div>
+            <div class="sessiontitle">
+                <h2><%= session.title %></h2>
+                <p>DM: <%= session.dm %></p>
                 
-                <p><%- session.content %></p>
+                <p>Party Members: |
+                    <!-- outputs the characters featured in session as links to SHOW page of each -->
+                    <% var party = session.characters; %>
+                    <% party.forEach(function(character){ %>    
+                        <a href="/characters/<%= character._id %>" ><%= character.name %></a> <span> | </span>
+                    <% }) %>
+                </p>
                 
-                <div>
-                    
-                    <!-- this button activates Session EDIT route -->
-                    <button class="editButton"><a href="/sessions/<%= session._id %>/edit">Edit</a></button>
-                    
-                    <!-- this button permanently deletes session via Session DELETE route -->
-                    <form class="pull-right" action="/sessions/<%= session._id %>?_method=DELETE" method="POST">
-                        <button class="deleteButton">Delete</button>
-                    </form>
-                </div>
+                <hr>
+            </div>
+            <div id="sessionpic" >
+                <img src="<%= session.image %>">
+                <p><%= session.caption %></p>
+            </div>
+            <p><%- session.content %></p>
+            
+            <div>
+                
+                <!-- this button activates Session EDIT route -->
+                <button class="editButton"><a href="/sessions/<%= session._id %>/edit">Edit</a></button>
+                
+                <!-- this button permanently deletes session via Session DELETE route -->
+                <form class="pull-right" action="/sessions/<%= session._id %>?_method=DELETE" method="POST">
+                    <button class="deleteButton">Delete</button>
+                </form>
             </div>
         </div>
 

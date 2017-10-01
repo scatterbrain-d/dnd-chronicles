@@ -171,6 +171,13 @@ h1, h2, h3 {
 
 #tableofcontents {
     display: none;
+    font-weight: bold;
+}
+
+#tableofcontents button {
+    margin: 0 5px;
+    height: 40px;
+    width: 50px;
 }
 
 /* adjusts bookmarks to compensate for fixed navbar */
@@ -204,14 +211,28 @@ h1, h2, h3 {
 }
 
 .show {
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2% 15%;
+    padding: 2%;
     box-sizing: border-box;
+    text-align: justify;
+}
+
+#sessionpic {
+    margin-left: 20px;
+    max-width: 50%;
+    float: right;
+    font-weight: bold;
+}
+
+#sessionpic img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
 }
 
 @media screen and (max-width: 850px) {
     .chapters {
+        margin: 0;
         float: none;
         width: 100%;
         height: auto;
@@ -243,9 +264,9 @@ h1, h2, h3 {
     }
 }
 
-@media screen and (max-width: 1100px) {.show {width: 70%;}}
-@media screen and (max-width: 900px) {.show {width: 80%;}}
-@media screen and (max-width: 650px) {.show {width: 90%;}}
+@media screen and (max-width: 1100px) {.show {margin: 2% 10%;}}
+@media screen and (max-width: 900px) {.show {margin: 2% 5%;}}
+@media screen and (max-width: 650px) {.show {margin: 2%;}}
 
 /*
     4.========== CHARACTER INDEX/SHOW ==========
