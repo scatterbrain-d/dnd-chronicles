@@ -37,7 +37,7 @@
         }
         
         
-//makes little highlight bar that jumps to links on mouseover        
+//makes highlight bar that jumps to links on mouseover        
         
         const links = document.querySelectorAll(".navLinks");    
         const highlight = document.createElement("span");
