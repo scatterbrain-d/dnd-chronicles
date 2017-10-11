@@ -25,8 +25,12 @@
                 
                 <!-- outputs first 500 characters of each session with link to SHOW page for each -->
                 <% sessions.forEach(function(entry){ %>
-                    <h2 class="title"><a name="<%= entry._id %>"></a><%= entry.title %></h2>
+                    <span class="title"><h2><a name="<%= entry._id %>"></a><%= entry.title %></h2>
+                    <% if (entry.image) { %> 
+                        <img class="photo" src="<%= entry.image %>">
+                    <% }; %>
                     <p><%- entry.content.substring(0, 500)%>...   <a href="/sessions/<%= entry._id %>">Read More</a></p>
+                    
                     <hr>
                 <% }); %>
             

@@ -231,6 +231,16 @@ h1, h2, h3 {
     width: auto;
 }
 
+.photo {
+    height: auto;
+    width: 20%;
+    float: left;
+    border-radius: 0.5em;
+    border: 3px solid #BBB;
+    margin: 10px 5px 5px 0;
+    box-sizing: border-box;
+}
+
 @media screen and (min-width: 851px) {
     .fixed .chapters {height: calc(100vh - 50px);}
 }
